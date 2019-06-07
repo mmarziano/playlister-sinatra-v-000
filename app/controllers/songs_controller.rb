@@ -63,16 +63,16 @@ class SongsController < ApplicationController
       if !params["genres"].empty?
         params["genres"].each do |genre_id|
           binding.pry
-          if Genre.find(genre_id)
+          #if Genre.find(genre_id)
             @song.genres << Genre.find(genre_id)
-          else
-            @genre = Genre.create(name: params["genre"])
-            @song.genres << @genre
-          end
+          #else
+            #@genre = Genre.create(name: params["genre"])
+            #@song.genres << @genre
+          #end
         end
-      else
-        @genre = Genre.create(name: params["genre"][0])
-        @genre.save
+      #else
+        #@genre = Genre.create(name: params["genre"][0])
+        #@genre.save
       end
       @song.save
   flash[:message] = "Successfully updated song."
