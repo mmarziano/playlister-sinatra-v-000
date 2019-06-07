@@ -47,7 +47,7 @@ class SongsController < ApplicationController
   get '/songs/:slug/edit' do
     @genres = Genre.all
     @song = Song.find_by_slug(params[:slug])
-
+    @artist = @song.artist
     erb :'songs/edit'
   end
 
@@ -56,6 +56,7 @@ class SongsController < ApplicationController
     @song = Song.find_by_slug(params[:slug])
     @song.update(name: params["song"]["name"])
       if params["Artist Name"] != nil && params["Artist Name"] != ""
+        @artist.update(name: params["Artist Name"])
         @song.artist.name = params["Artist Name"]
         binding.pry
       end
