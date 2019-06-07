@@ -72,7 +72,7 @@ class SongsController < ApplicationController
         @genre = Genre.create(name: params["genre"][0])
         @genre.save
       end
-
+      @song.save
   flash[:message] = "Successfully updated song."
   erb :"songs/#{@song.slug}"
   end
