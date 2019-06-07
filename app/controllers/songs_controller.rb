@@ -52,7 +52,7 @@ class SongsController < ApplicationController
   end
 
   patch "/songs/:slug" do
-    binding.pry
+    #binding.pry
     @song = Song.find_by_slug(params[:slug])
     @song.update(name: params["song"]["name"])
       if params["song"]["artist"] != nil || params["song"]["artist"] != ""
@@ -75,6 +75,7 @@ class SongsController < ApplicationController
         #@genre.save
       end
       @song.save
+      binding.pry
   flash[:message] = "Successfully updated song."
   erb :"songs/#{@song.slug}"
   end
