@@ -62,7 +62,7 @@ class SongsController < ApplicationController
     #binding.pry
       if !params["genres"].empty?
         params["genres"].each do |genre_id|
-          binding.pry
+          #binding.pry
           #if Genre.find(genre_id)
             @song.genres << Genre.find(genre_id)
           #else
