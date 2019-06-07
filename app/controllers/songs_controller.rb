@@ -59,7 +59,7 @@ class SongsController < ApplicationController
         @song.artist.name = params["song"]["artist"]
       end
     @song.genres.clear
-    binding.pry
+    #binding.pry
       if !params["genres"].empty?
         params["genres"].each do |genre_id|
           if Genre.find(genre_id)
